@@ -1,4 +1,4 @@
-#include "purity.wangu"
+#include "puritywangu.h"
 
 /**
  * _isupper -  checks for uppercase character.

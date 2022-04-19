@@ -1,4 +1,4 @@
-#include "purity.wangu"
+#include "puritywangu.h"
 
 /**
  * print_line -  checks for checks for a digit (0 through 9).
