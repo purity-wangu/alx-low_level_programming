@@ -1,4 +1,4 @@
-#include "puritywangu.h"
+#include "main.h"
 
 /**
  * print_triangle -  checks for checks for a digit (0 through 9).
