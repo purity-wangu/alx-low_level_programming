@@ -1,7 +1,8 @@
 #include "main.h"
 
 /**
- * The function puts() writes the string s, and a terminating newline character, to the stream stdout.
+ * _puts - check the code for Purity_Wangu.
+ * @str: validates the character
  * Return: Always 0.
  */
 void _puts(char *str)
