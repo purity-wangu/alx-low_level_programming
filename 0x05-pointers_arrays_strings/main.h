@@ -1,5 +1,5 @@
-#ifndef main.h
-#define main.h
+#ifndef PURITY_WANGU
+#define PURITY_WANGU
 
 void reset_to_98(int *n);
 void swap_int(int *a, int *b);
