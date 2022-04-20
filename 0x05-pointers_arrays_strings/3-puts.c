@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * @str: validate the character
+ * The function puts() writes the string s, and a terminating newline character, to the stream stdout.
  * Return: Always 0.
  */
 void _puts(char *str)
