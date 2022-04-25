@@ -1,27 +1,27 @@
 #include "main.h"
 
 /**
- * rot13 - Function that reverses the content of an array of integers.
- *
- * @str: s is the array
- *
- * Return: Always 0.
+ * rot13 - change letter in convertion ROT13
+ * @cc: Chain of characters to convert
+ * Return: Return chain of characters modified
  */
-char *rot13(char *str)
+char *rot13(char *cc)
 {
-	int i = 0, k;
-	char s[] =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char s1[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i, j;
 
-	for (; str[i] != '\0'; i++)
+	char normal[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; cc[i]; i++)
 	{
-		for (k = 0; k <= 51; k++)
+		for (j = 0; normal[j]; j++)
 		{
-			if (s[k] == str[i])
+			if (cc[i] == normal[j])
 			{
-				str[i] = s1[k];
+				cc[i] = rot13[j];
+				break;
 			}
 		}
 	}
-	return (str);
+	return (cc);
 }
