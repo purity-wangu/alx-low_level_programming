@@ -6,7 +6,7 @@
  * @size: int
  * Return: withour return
  */
-void print_buffer(char *b, int size)
+void print_buffer(char *b, int size);
 {
 	int hex = 0;
 	int i, j, k;
