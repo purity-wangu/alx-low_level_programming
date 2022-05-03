@@ -1,6 +1,7 @@
-#ifndef Purity_Wangu
-#define Purity_Wangu
+#ifndef PURITY_WANGU
+#define PURITY_WANGU
 
+#include <stddef.h>
 
 int _putchar(char c);
 int _islower(int c);
@@ -23,5 +24,5 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
-#endif
+#endif /* PURITY_WANGU */
 
