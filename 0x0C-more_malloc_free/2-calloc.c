@@ -6,7 +6,6 @@
  * @size: the size of type of date
  * Return: pointer to new size memory.
  */
-
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;

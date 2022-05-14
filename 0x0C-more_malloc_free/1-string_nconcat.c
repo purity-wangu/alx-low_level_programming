@@ -7,7 +7,6 @@
  * @n : number of chars to use of s2.
  * Return: new pointer with s1 and s2 added.
  */
-
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	int i = 0;

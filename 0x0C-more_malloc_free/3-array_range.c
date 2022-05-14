@@ -6,7 +6,6 @@
  * @max: number max posible
  * Return: Return array with numbers between min and max
  */
-
 int *array_range(int min, int max)
 {
 	int countNumbers, i;
