@@ -1,78 +1,47 @@
 #include "variadic_functions.h"
-#include <stdio.h>
-#include <stdarg.h>
 
 /**
- * print_c - Print a char.
- * @c: Char to be printed.
- **/
-void print_c(va_list c)
+ * print_all - print all types, int, char, char *, float.
+ * @format: characters to reroll to know that print.
+ * Return: without return.
+ */
+void print_all(const char *const format, ...)
 {
-	printf("%c", va_arg(c, int));
-}
-/**
- * print_i - Print an int.
- * @i: integer to be printed.
- **/
-void print_i(va_list i)
-{
-	printf("%d", va_arg(i, int));
-}
-/**
- * print_f - Print a float.
- * @f: Float to be printed.
- **/
-void print_f(va_list f)
-{
-	printf("%f", va_arg(f, double));
-}
-/**
- * print_s - Print a string.
- * @s: String to be printed.
- **/
-void print_s(va_list s)
-{
-	char *str = va_arg(s, char *);
+	int i = 0;
+	char *value, *concatenator = "";
 
-	if (str == NULL)
-		str = "(nil)";
-	printf("%s", str);
-}
+	va_list listArgs;
 
-/**
- * print_all - Print any type of arguments.
- * @format: A list of types of arguments.
- **/
-
-void print_all(const char * const format, ...)
-{
-	format_t s[] = {
-		{'c', print_c},
-		{'i', print_i},
-		{'f', print_f},
-		{'s', print_s},
-		{'\0', '\0'}
-	};
-	unsigned int i = 0, j;
-	char *separator = "";
-	va_list args;
-
-	va_start(args, format);
-	while (format && format[i])
+	va_start(listArgs, format);
+	if (format)
 	{
-		j = 0;
-		while (s[j].form != '\0')
+		while (format[i])
 		{
-			if (s[j].form == format[i])
+			switch (format[i])
 			{
-				printf("%s", separator);
-				s[j].f(args);
-				separator = ", ";
+			case 'c':
+				printf("%s%c", concatenator, va_arg(listArgs, int));
 				break;
+			case 'i':
+				printf("%s%d", concatenator, va_arg(listArgs, int));
+				break;
+			case 'f':
+				printf("%s%f", concatenator, va_arg(listArgs, double));
+				break;
+			case 's':
+				value = va_arg(listArgs, char *);
+				if (value == NULL)
+					value = "(nil)";
+				printf("%s%s", concatenator, value);
+				break;
+			default:
+				i++;
+				continue;
 			}
-			j++;
+			concatenator = ", ";
+			i++;
 		}
-		i++;
 	}
+	va_end(listArgs);
 	printf("\n");
 }
