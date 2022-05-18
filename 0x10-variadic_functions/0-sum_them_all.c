@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "variadic_functions.h"
 
 /**
@@ -12,13 +13,13 @@ int sum_them_all(const unsigned int n, ...)
 		unsigned int i = 0;
 		int sumAll = 0;
 
-		va_list listArgs;
+		va_list listParams;
 
-		va_start(listArgs, n);
+		va_start(listParams, n);
 		for (i = 0; i < n; i++)
-			sumAll += va_arg(listArgs, int);
+			sumAll += va_param(listParams, int);
 
-		va_end(listArgs);
+		va_end(listParams);
 		return (sumAll);
 	}
 	return (0);
