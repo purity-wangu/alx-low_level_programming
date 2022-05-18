@@ -1,47 +1,53 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - print all types, int, char, char *, float.
- * @format: characters to reroll to know that print.
- * Return: without return.
+ *  print_all - Prints anything
+ *
+ *  @format: List of args passed to function
+ *
+ *  Return: void
  */
-void print_all(const char *const format, ...)
+
+void print_all(const char * const format, ...)
 {
-	int i = 0;
-	char *value, *concatenator = "";
+	char *str;
+	unsigned int i = 0, commaCheck = 0;
+	va_list ap;
 
-	va_list listArgs;
+	va_start(ap, format);
 
-	va_start(listArgs, format);
-	if (format)
+	while (format && format[i])
 	{
-		while (format[i])
+		if (commaCheck)
+			printf(", ");
+
+		switch (format[i])
 		{
-			switch (format[i])
+		case 'c':
+			printf("%c", va_arg(ap, int));
+			break;
+		case 'i':
+			printf("%i", va_arg(ap, int));
+			break;
+		case 'f':
+			printf("%f", va_arg(ap, double));
+			break;
+		case 's':
+			str = va_arg(ap, char*);
+			if (str)
 			{
-			case 'c':
-				printf("%s%c", concatenator, va_arg(listArgs, int));
+				printf("%s", str);
 				break;
-			case 'i':
-				printf("%s%d", concatenator, va_arg(listArgs, int));
-				break;
-			case 'f':
-				printf("%s%f", concatenator, va_arg(listArgs, double));
-				break;
-			case 's':
-				value = va_arg(listArgs, char *);
-				if (value == NULL)
-					value = "(nil)";
-				printf("%s%s", concatenator, value);
-				break;
-			default:
-				i++;
-				continue;
 			}
-			concatenator = ", ";
+			printf("(nil)");
+			break;
+		default:
+			commaCheck = 0;
 			i++;
+			continue;
 		}
+		commaCheck = 1,	i++;
 	}
-	va_end(listArgs);
-	printf("\n");
+	putchar('\n');
+	va_end(ap);
 }
