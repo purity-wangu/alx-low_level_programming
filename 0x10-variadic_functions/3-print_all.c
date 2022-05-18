@@ -1,4 +1,6 @@
 #include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
  *  print_all - Prints anything
@@ -48,6 +50,6 @@ void print_all(const char * const format, ...)
 		}
 		commaCheck = 1,	i++;
 	}
-	putchar('\n');
+	_putchar('\n');
 	va_end(ap);
 }
